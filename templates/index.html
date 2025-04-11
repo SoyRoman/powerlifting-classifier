@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clustering Powerlifting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff0033;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            background-color: #2a2a2a;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #ff0033;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6002e;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #ffffff;
+            font-size: 20px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clasificación Powerlifting</h1>
+        <form method="POST">
+            <label for="Sex">Sexo (0 para M, 1 para F):</label>
+            <input type="number" name="Sex" step="any" required>
+
+            <label for="BodyweightKg">Peso corporal (kg):</label>
+            <input type="number" name="BodyweightKg" step="any" required>
+
+            <label for="BestSquatKg">Sentadilla máxima (kg):</label>
+            <input type="number" name="BestSquatKg" step="any" required>
+
+            <label for="BestBenchKg">Press banca máximo (kg):</label>
+            <input type="number" name="BestBenchKg" step="any" required>
+
+            <label for="BestDeadliftKg">Peso muerto máximo (kg):</label>
+            <input type="number" name="BestDeadliftKg" step="any" required>
+
+            <label for="TotalKg">Total levantado (kg):</label>
+            <input type="number" name="TotalKg" step="any" required>
+
+            <button type="submit">Predecir Clasificación</button>
+        </form>
+
+        {% if result %}
+            <h2>{{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
